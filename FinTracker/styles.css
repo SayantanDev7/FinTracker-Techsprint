@@ -6,14 +6,16 @@
   box-sizing: border-box;
 }
 
-html,body{
+html,
+body {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   line-height: 1.6;
+  /* fix for the bg animation overflow */
+  overflow-x: hidden;
 }
 
 body {
-  
   position: relative;
   background: transparent; /* MUST be transparent */
   color: #fff;
@@ -57,6 +59,8 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
+  border-radius: 35px;
+  /* margin: 0 20px; */
 }
 
 header .logo h2 {
@@ -73,8 +77,8 @@ header .logo h2 {
   padding: 0.5rem 1.2rem;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 25px;
+  font-weight: 400;
   cursor: pointer;
   transition: 0.3s;
   text-decoration: none;
@@ -96,10 +100,81 @@ header .logo h2 {
   color: #e0e0ff;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 300;
 }
 .nav-links li a:hover {
   color: #0077ff;
+}
+
+/* responsive nav bar */
+@media (max-width: 768px) {
+  /* NAV LINKS: hidden by default, vertical layout when active */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 85;
+    right: 5;
+    width: 48%;
+    /* background: radial-gradient(circle at center, #1b226c, #0d081a);  */
+    gap: 1rem;
+    padding: 1rem 0;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+
+    border-radius: 25px;
+  }
+
+  /* SHOW nav links when menu is active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* HAMBURGER ICON */
+  .menu-toggle {
+    display: block; 
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+
+  .asset-list th, 
+  .asset-list td {
+    padding: 0.5rem; /* Tighter padding for mobile */
+    font-size: 0.55rem; /* Smaller text to fit more data */
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+}
+
+/* DESKTOP (>=768px) */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important; /* always show nav links */
+    flex-direction: row;
+    position: static;
+    gap: 1.5rem;
+    padding: 0;
+    background: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .loginbutton {
+    display: inline-block;
+  }
 }
 
 /* Hero Section */
@@ -120,15 +195,16 @@ header .logo h2 {
 }
 
 .cta-btn {
-  background: #0077ff;
+  /* background: #0077ff; */
+  background: radial-gradient(circle at center,#0077ff);
   color: white;
   border: none;
   padding: 1.2rem 2.8rem;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 900;
   letter-spacing: 0.5px;
-  text-shadow: 1px 1px 2px rgb(255, 255, 255);
-  border-radius: 12px;
+  text-shadow: .5px .5px 0px rgb(0, 0, 0);
+  border-radius: 30px;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
   transition: all 0.4s ease;
@@ -373,26 +449,27 @@ header .logo h2 {
 
 .alert-card {
   padding: 1.2rem;
-  border-radius: 10px;
-  font-weight: 600;
+  border-radius: 0 30px;
+  font-weight: 900;
+  text-shadow: 1px 1px 0px black;
   font-size: 1rem;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .alert-card.yellow {
-  background-color: #ffd54f;
-  color: #333;
+  background: linear-gradient(90deg,rgba(161, 16, 16, 1) 0%, rgba(196, 129, 12, 1) 30%, rgba(255, 225, 0, 1) 100%);
+  color: #fff;
 }
 .alert-card.violet {
-  background-color: #9b59b6;
+  background: radial-gradient(circle,rgba(63, 69, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
   color: #fff;
 }
 .alert-card.blue {
-  background-color: #3498db;
+  background: linear-gradient(90deg,rgba(26, 147, 240, 1) 12%, rgba(114, 191, 59, 0.9) 65%, rgba(237, 213, 59, 1) 100%);
   color: #fff;
 }
 .alert-card.orange {
-  background-color: #e67e22;
+  background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
   color: #fff;
 }
 
@@ -501,7 +578,6 @@ footer {
   transition: 0.2s ease;
 }
 
-  
 #particles-js {
   position: fixed;
   top: 0;
@@ -515,12 +591,14 @@ footer {
   position: fixed;
   inset: 0;
   /* Add your image here instead of the body */
-  background: linear-gradient(rgba(0,0,30,0.35), rgba(0,0,30,0.35)),
-              url("./utils/your-background.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 30, 0.35), rgba(0, 0, 30, 0.35)),
+    url("./utils/your-background.jpg") center/cover no-repeat;
   z-index: 0; /* Bottom layer */
 }
 /* Ensure all your content is above the particles */
-header, section, footer {
+header,
+section,
+footer {
   position: relative;
-  z-index: 10; 
+  z-index: 10;
 }
