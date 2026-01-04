@@ -1,15 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import {
   getAuth,
-  createUserWithEmailAndPassword,
+  createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 const firebaseConfig = {
-  apiKey: "AIzaSyAblJAXsiG8QO8F3cDumdhrbogd7lAE-fc",
-  authDomain: "hello-world-hacks-de5c9.firebaseapp.com",
-  projectId: "hello-world-hacks-de5c9",
-  storageBucket: "hello-world-hacks-de5c9.firebasestorage.app",
-  messagingSenderId: "603100474075",
-  appId: "1:603100474075:web:b883bbfd193692c9f6fafe",
+  apiKey: "AIzaSyCgzrkGNVam9Bn3V0zFs37mydEgmq_N2mw",
+  authDomain: "fintracker-5964c.firebaseapp.com",
+  projectId: "fintracker-5964c",
+  storageBucket: "fintracker-5964c.firebasestorage.app",
+  messagingSenderId: "527418653498",
+  appId: "1:527418653498:web:3123822d839a77351bae03"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -17,7 +17,7 @@ const auth = getAuth(app);
 
 const btn = document.getElementById("btn");
 
-btn.addEventListener("click", (event) => {
+btn.addEventListener("click", () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   // const passwordB = document.getElementById("passwordB").value;
@@ -29,8 +29,6 @@ btn.addEventListener("click", (event) => {
     })
 
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
+      alert(error.message);
     });
 });
