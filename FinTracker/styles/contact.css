@@ -1,0 +1,136 @@
+/* ================= BASE STYLES ================= */
+
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 40px; /* top space for fixed header */
+  position: relative;
+  z-index: 10;
+}
+
+/* Glass Card */
+.contact-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.2rem;
+  background: rgba(29, 6, 45, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 119, 255, 0.4);
+  text-align: center;
+}
+
+/* Headings */
+.contact-card h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.contact-card p {
+  margin-bottom: 2rem;
+  color: #e0e0ff;
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+.input-box {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.input-box input,
+.input-box textarea {
+  width: 100%;
+  padding: 12px 42px 12px 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 0.95rem;
+}
+
+.input-box textarea {
+  resize: none;
+  height: 100px;
+}
+
+.input-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9bbcff;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #0077ff;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 119, 255, 0.6);
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #8f44fd, #7f5eff);
+  transform: scale(1.05);
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding-top: 110px;
+  }
+
+  .contact-card {
+    padding: 2rem;
+  }
+
+  .contact-card h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding-top: 100px;
+  }
+
+  .contact-card {
+    padding: 1.6rem;
+    border-radius: 14px;
+  }
+
+  .contact-card h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-card p {
+    font-size: 0.9rem;
+  }
+
+  .input-box input,
+  .input-box textarea {
+    font-size: 0.9rem;
+    padding: 11px 38px 11px 12px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 11px;
+  }
+}

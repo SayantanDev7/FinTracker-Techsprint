@@ -1,2 +1,2 @@
 # FinTracker
-A finance crypto tracking webssite prototype
+A finance crypto tracking website prototype
