@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: sans-serif;
     background-color: #0b0c2a;
     color: #e0e0e0;
@@ -308,9 +308,243 @@ body {
     .asset-list-section,
     .trade-info {
         flex-direction: column;
-    } */
+    } 
 }
 
 .p{
     display: flex;
+} */
+
+/* ===== RESET & GLOBAL FIXES ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: linear-gradient(135deg, #0b0c2a, #12143a);
+    color: #e5e7eb;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 100vw;
+    gap: 24px;
+    padding: 24px;
+    overflow-x: hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #141625;
+    width: 240px;
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.navigation a {
+    color: #9ca3af;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    background: #1f233d;
+    color: #ffffff;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    flex: 1;
+    min-width: 0; /* 🔑 critical for overflow fix */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.portfolio-header h1 {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* ===== CARDS ===== */
+.card,
+.portfolio-overview > div,
+.asset-allocation > div,
+.asset-list-section > div,
+.trade-info > div {
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(145deg, #1a1d4d, #141738);
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+/* ===== CARD TEXT ===== */
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #9ca3af;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    word-break: break-word;
+}
+
+.card-change {
+    margin-top: 6px;
+    font-size: 0.9rem;
+}
+
+.positive { color: #4caf50; }
+.negative { color: #f44336; }
+
+/* ===== CHART ===== */
+.performance-chart img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* ===== ASSET ALLOCATION ===== */
+.allocation {
+    display: flex;
+    flex-wrap: wrap; /* 🔑 prevents overflow */
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.allocation-chart {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #222454;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.allocation-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ===== ASSET LIST ===== */
+.asset-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.asset-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.asset-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.asset-holdings,
+.asset-value {
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+/* ===== TRADE INFO ===== */
+.trade-item {
+    padding: 12px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trade-type {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: #ffffff;
+}
+
+.buy { background: #4caf50; }
+.sell { background: #f44336; }
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
 }
