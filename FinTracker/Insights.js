@@ -124,3 +124,16 @@ if (assets.length === 0) {
 } else {
   renderInsights(assets);
 }
+
+// ✅ Reset page UI without deleting stored data
+document.getElementById("resetInsightsBtn")?.addEventListener("click", () => {
+  // Remove stored assets completely
+  localStorage.removeItem("userAssets");
+
+  // Clear Insights UI
+  document.getElementById("insights-container").innerHTML = "";
+
+  // Alert user
+  alert("All previous data cleared. You can now add new assets.");
+});
+

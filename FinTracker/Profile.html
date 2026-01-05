@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -100,4 +100,73 @@
       </main>
     </div>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Crypto Portfolio</title>
+  <link rel="stylesheet" href="Profile.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        Fin<span style="color:#0077ff">Tracker</span>
+      </div>
+      <nav class="navigation">
+        <a href="Profile.html" class="active">Portfolio</a>
+        <a href="Insights.html">Insights</a>
+        <a href="index.html">Home</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <header class="portfolio-header">
+        <h1>My Crypto Portfolio</h1>
+      </header>
+
+      <!-- Portfolio Overview -->
+      <section class="portfolio-overview">
+        <div class="portfolio-value-card">
+          <div class="card-title">Portfolio Value</div>
+          <div class="card-value" id="portfolioValue">₹0</div>
+          <div class="card-change" id="portfolioChange">
+            No assets added
+          </div>
+        </div>
+      </section>
+
+      <!-- Asset List -->
+      <section class="asset-list-section">
+        <div class="card">
+          <div class="card-title">Asset List</div>
+
+          <ul class="asset-list" id="assetList">
+            <!-- Header Row -->
+            <li class="asset-item">
+              <div class="asset-name">Asset</div>
+              <div class="asset-holdings">Holdings (₹)</div>
+              <div class="asset-value">24h</div>
+            </li>
+            <!-- Dynamic rows will be injected here -->
+          </ul>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Profile Logic -->
+  <script src="Profile.js"></script>
+</body>
 </html>
+

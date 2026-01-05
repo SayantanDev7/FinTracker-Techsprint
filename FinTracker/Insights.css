@@ -171,3 +171,18 @@ body {
   
   transition: transform 0.3s;
 }
+
+.reset-btn {
+  margin-left: 20px;
+  padding: 8px 14px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reset-btn:hover {
+  background: #005fcc;
+}
