@@ -133,9 +133,9 @@ function addAssetRow(symbol, amount, buyPrice) {
 // ---------- Feature 5: Rule-Based Alerts ----------
 function checkPnLAlert(pnl) {
   if (pnl <= -10) {
-    alert("⚠️ Alert: Asset dropped more than 10%");
+    alert(" Alert: Asset dropped more than 10%");
   } else if (pnl >= 15) {
-    alert("🎉 Alert: Asset gained more than 15%");
+    alert(" Alert: Asset gained more than 15%");
   }
 }
 

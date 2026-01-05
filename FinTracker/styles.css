@@ -10,6 +10,7 @@ html,body{
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   line-height: 1.6;
+  overflow-x: hidden ;
 }
 
 body {
@@ -57,6 +58,7 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
+  border-radius: 35px;
 }
 
 header .logo h2 {
@@ -96,11 +98,83 @@ header .logo h2 {
   color: #e0e0ff;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 300;
 }
 .nav-links li a:hover {
   color: #0077ff;
 }
+
+/* responsive nav bar */
+@media (max-width: 768px) {
+  /* NAV LINKS: hidden by default, vertical layout when active */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 85;
+    right: 5;
+    width: 48%;
+    /* background: radial-gradient(circle at center, #1b226c, #0d081a);  */
+    gap: 1rem;
+    padding: 1rem 0;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+
+    border-radius: 25px;
+  }
+
+  /* SHOW nav links when menu is active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* HAMBURGER ICON */
+  .menu-toggle {
+    display: block; 
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+
+  .asset-list th, 
+  .asset-list td {
+    padding: 0.5rem; /* Tighter padding for mobile */
+    font-size: 0.55rem; /* Smaller text to fit more data */
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+}
+
+/* DESKTOP (>=768px) */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important; /* always show nav links */
+    flex-direction: row;
+    position: static;
+    gap: 1.5rem;
+    padding: 0;
+    background: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .loginbutton {
+    display: inline-block;
+  }
+}
+
 
 /* Hero Section */
 .hero {
